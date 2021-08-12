@@ -58,30 +58,30 @@ const FILES_TO_CACHE = [
         })
       );
 
-      return
+   
     }
 
-        if (event.request.url.includes("/api/")) {
-      event.respondWith(
-        caches.open(DATA_CACHE).then(cache => {
-          return fetch(event.request)
-            .then(response => {
+    //     if (event.request.url.includes("/api/")) {
+    //   event.respondWith(
+    //     caches.open(DATA_CACHE).then(cache => {
+    //       return fetch(event.request)
+    //         .then(response => {
              
-              if (response.status === 200) {
-                cache.put(event.request.url, response.clone());
-              }
+    //           if (response.status === 200) {
+    //             cache.put(event.request.url, response.clone());
+    //           }
   
-              return response;
-            })
-            .catch(err => {
-              // Network request failed, try to get it from the cache.
-              return cache.match(event.request);
-            });
-        }).catch(err => console.log(err))
-      );
+    //           return response;
+    //         })
+    //         .catch(err => {
+    //           // Network request failed, try to get it from the cache.
+    //           return cache.match(event.request);
+    //         });
+    //     }).catch(err => console.log(err))
+    //   );
   
-      return;
-    }
+    //   return;
+    // }
   });
 
 // self.addEventListener("fetch", function(event) {
